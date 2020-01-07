@@ -1,4 +1,14 @@
-function Test-IsAdmin {
+<# IMPORTANT NOTE HOW TO USE THE BELOW FUNCTION OR CODE
+
+DOT source this script to use the Test-IsAdmin function (or create your .psm1 module with this function inside)
+
+OR
+
+Remove the "Function Test-IsAdmin {}" statements and just include the Try {} Catch{} lines
+
+#>
+
+Function Test-IsAdmin {
     try {
         $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
         $principal = New-Object Security.Principal.WindowsPrincipal -ArgumentList $identity
