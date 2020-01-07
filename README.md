@@ -2,10 +2,24 @@
 Function to test if user running PoSH with Admin rights
 
 # Or use a one-liner
-
+## One-liner variant #1
+- using [Security.Principal.WindowsBuiltInRole]::Administrator
 ```powershell
 ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 ```
+## One-liner variant #2
+- using [Security.Principal.WindowsBuiltInRole] "Administrator"
+```powershell
+([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
+```
+
+## One-liner variant #3
+- using New-Object Security.Principal.WindowsPrincipal instead of [Security.Principal.WindowsPrincipal] constructor
+```powershell
+(New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+```
+
+
 
 # And using an IF statement
 
